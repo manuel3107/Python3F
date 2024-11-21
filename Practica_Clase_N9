@@ -1,0 +1,89 @@
+#Calcular el promedio de "N" notas
+def calcular_promedio(notas):
+    suma = sum(notas)
+    cantidad = len(notas)
+    promedio = suma / cantidad
+    return promedio
+
+notas = [10, 7, 5, 4, 3, 8, 9]
+promedio = calcular_promedio(notas)
+print(f"El promedio de las notas es: {promedio:.2f}")
+
+#funcion que determina si un color es primario o no
+def color_primario(color):
+    colores_primarios = {'rojo', 'azul', 'amarillo'}
+    if color in colores_primarios:
+        print(f"El color {color} es primario.")
+    else:
+        print(f"El color {color} no es primario.")
+
+color_primario("rojo")
+color_primario("amarillo")
+color_primario("verde")
+color_primario("azul")
+
+#funcion que encuentra el numero mayor
+def encontrar_numero_mayor(numeros):
+    if not numeros:
+        return None
+    
+    numero_mayor = numeros[0]
+
+    for numero in numeros:
+        if numero > numero_mayor:
+            numero_mayor = numero
+
+    return numero_mayor
+
+numeros = [3, 5, 1, 8, 2, 10, 7]
+mayor = encontrar_numero_mayor(numeros)
+if mayor is not None:
+    print(f"El número mayor de la serie es: {mayor}")
+else:
+    print("No se proporcionaron números.")
+
+#Funcion que dibuja un cuadrado
+def dibujar_rectangulo(filas, columnas):
+    for i in range(filas):
+        print('*' * columnas)
+
+def main():
+    try:
+        filas = int(input("Ingrese el número de filas: "))
+        columnas = int(input("Ingrese el número de columnas: "))
+        
+        if filas <= 0 or columnas <= 0:
+            print("El número de filas y columnas debe ser mayor que cero.")
+        else:
+            dibujar_rectangulo(filas, columnas)
+    except ValueError:
+        print("Por favor, ingrese un número entero válido.")
+
+if __name__ == "__main__":
+    main()
+
+#Funcion que calcula el factorial de un numero positivo
+def factorial(n):
+    if n < 0:
+        raise ValueError("El número debe ser un entero positivo.")
+    elif n == 0 or n == 1:
+        return 1
+    else:
+        resultado = 1
+        for i in range(2, n + 1):
+            resultado *= i
+        return resultado
+
+def main():
+    try:
+        numero = int(input("Ingrese un número entero positivo: "))
+        if numero < 0:
+            print("Por favor, ingrese un número entero positivo.")
+        else:
+            resultado = factorial(numero)
+            print(f"El factorial de {numero} es: {resultado}")
+    except ValueError:
+        print("Por favor, ingrese un número entero válido.")
+
+if __name__ == "__main__":
+    main()
